@@ -34,10 +34,9 @@ jobs:
       - name: Placeholder style check
         run: echo "Style checks go here"
 
-      - name: Check out code
-        uses: actions/checkout@v4
-
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.26.0"
+      - name: Check formatting
+        run: test -z $(go fmt ./...)
